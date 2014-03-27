@@ -4,7 +4,7 @@ $.get(stackoverflow_path, function(data) {
   var $list = $('<ul>'); 
   console.log(data);
   $.each(data, function(item) {
-    var $element = $.('<li>').html(data[item]);
+    var $element = $('<li>').html(data[item]);
     $list.append($element);
     console.log(item);
   });
