@@ -4,6 +4,9 @@ require 'json'
 require 'awesome_print'
 
 class AppController < Sinatra::Base
+  after do
+    headers('Access-Control-Allow-Origin' => '*')
+  end
   get '/' do
     'Stack Overflow Statistics'
   end
