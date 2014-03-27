@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'open-uri'
+require 'json'
+require 'awesome_print'
 
 class AppController < Sinatra::Base
   get '/' do
@@ -7,7 +9,8 @@ class AppController < Sinatra::Base
   end
 
   get '/:id' do
-    Stats.new(params[:id])
+    content_type 'application/json'
+    Stats.new(params[:id]).retrieve
   end
 end
 
