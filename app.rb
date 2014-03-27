@@ -1,7 +1,26 @@
 require 'sinatra'
+require 'open-uri'
 
 class AppController < Sinatra::Base
   get '/' do
     'Stack Overflow Statistics'
+  end
+
+  get '/:id' do
+    Stats.new(params[:id])
+  end
+end
+
+class Stats
+  def initialize(id)
+    @id = id
+    @details_url = "https://api.stackexchange.com/2.1/users/#{id}/?site=stackoverflow"
+  end
+
+  attr_reader :details_url, :id
+
+  def retrieve
+    raw_data = open(details_url).read
+    JSON.parse(raw_data, symbolize_names: true)
   end
 end
