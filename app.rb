@@ -24,6 +24,6 @@ class Stats
 
   def retrieve
     raw_data = open(details_url).read
-    JSON.parse(raw_data, symbolize_names: true)
+    # JSON.parse(raw_data, symbolize_names: true)
   end
 end

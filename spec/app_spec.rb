@@ -20,12 +20,12 @@ describe 'Main Router' do
       expect(stats.details_url).to eq(url)
     end
 
-    it 'should request latest stackoverflow data' do
-      stub_request(:any, url)
-        .to_return(File.new('spec/fixtures/user_details.txt'))
-      data = stats.retrieve
-      expect(data).to include(:items)
-    end
+    # it 'should request latest stackoverflow data' do
+    #   stub_request(:any, url)
+    #     .to_return(File.new('spec/fixtures/user_details.txt'))
+    #   data = stats.retrieve
+    #   expect(data).to include(:items)
+    # end
 
     it 'should return the stackoverflow data' do
       stub_request(:any, url)
