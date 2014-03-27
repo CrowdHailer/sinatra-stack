@@ -4,7 +4,7 @@ $.get(stackoverflow_path, function(data) {
   var $list = $('<li>'); 
   alert(data);
   console.log(data);
-  $.each(data function(item) {
+  $.each(data, function(item) {
     console.log(item);
   });
   $('#stackoverflow-details-container').append(data);
