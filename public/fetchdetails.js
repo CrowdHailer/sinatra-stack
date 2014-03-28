@@ -3,10 +3,10 @@ $.get(stackoverflow_path, function(data) {
   data = data['items'][0];
   var $list = $('<ul>'); 
   console.log(data);
-  $.each(data, function(item) {
-    var $element = $('<li>').html(data[item]);
-    $list.append($element);
-    console.log(item);
-  });
+	$('<li>').html('Location: '+data[:location]).appendTo($list);
+	$('<li>').html('Reputation: '+data[:reputation]).appendTo($list);
+	$('<li>').html('Gold Badges: '+data[:badge_counts][:gold]).appendTo($list);
+	$('<li>').html('Silver Badges: '+data[:badge_counts][:silver]).appendTo($list);
+	$('<li>').html('Bronze Badges: '+data[:badge_counts][:bronze]).appendTo($list);
   $('#stackoverflow-details-container').append($list);
 });
