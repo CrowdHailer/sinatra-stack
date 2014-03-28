@@ -1,7 +1,7 @@
 var stackoverflow_path = 'http://arcane-springs-5149.herokuapp.com/' + gon.stackoverflow_id;
 $.get(stackoverflow_path, function(data) {
   data = data['items'][0];
-  var $list = $('<ul>'); 
+  var $list = $('<ul>').addClass('inline-list'); 
   console.log(data);
 	$('<li>').html('Location: '+data['location']).appendTo($list);
 	$('<li>').html('Reputation: '+data['reputation']).appendTo($list);
